@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="row">
+        <div id="container" class="col-10"></div>
+
+        <div class="col-2">
+            <div class="game-score">
+                <p id="scoreBox">score : 0</p>
+                <p id="hiscoreBox">Hi score : 0</p>
+            </div>
+
+            <div class="game-scontrols">
+                <div class="speed">
+                    <p id="speed">Speed</p>
+    
+                    <div class="speed-control">
+                        <button id="highSpeed">+</button>
+                    <p id="snake-speed"></p>
+                    <button id="lowSpeed">-</button>
+                    </div>
+                </div>
+                <div class="game-state">
+                    <button class="pause hide">Play Game ▶️</button>
+                    <button class="play">Pause Game ⏸️</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="script.js"></script>
+
+</html>

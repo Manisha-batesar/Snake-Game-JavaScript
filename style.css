@@ -1,0 +1,156 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    background: url("./assets/snake.png");
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.col-2 {
+    padding: 10px;
+    min-width: 170px;
+}
+
+.speed-control {
+    display: flex;
+}
+
+.game-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.game-state button {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(20, 88, 39);
+    color: whitesmoke;
+}
+
+@media screen and (max-width: 450px) {
+    .row {
+        flex-wrap: wrap;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+#container {
+    height: 92vmin;
+    width: 90vmin;
+    border: 3px solid black;
+    background: linear-gradient(#c79984, #f0c051);
+    display: grid;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+}
+
+.head {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(./assets/snake-head.png);
+    z-index: 10;
+
+}
+
+#scoreBox {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Brush Script MT', cursive;
+    color: rgb(16, 77, 27);
+
+}
+
+#hiscoreBox {
+    top: 50px;
+    right: 60px;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Brush Script MT', cursive;
+    color: rgb(16, 77, 27);
+
+}
+
+#speed {
+    top: 90px;
+    right: 94px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Brush Script MT', cursive;
+    color: rgb(16, 56, 23);
+}
+
+#highSpeed {
+    display: flex;
+    top: 143px;
+    right: 180px;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Brush Script MT', cursive;
+    color: white;
+    height: 30px;
+    width: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(20, 88, 39);
+}
+
+#lowSpeed {
+    display: flex;
+    top: 143px;
+    right: 56px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Brush Script MT', cursive;
+    color: white;
+    height: 30px;
+    width: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(20, 88, 39);
+}
+
+#snake-speed {
+    display: flex;
+    top: 143px;
+    right: 115px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Brush Script MT', cursive;
+    color: white;
+    height: 30px;
+    width: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(20, 88, 39);
+}
+
+.snake {
+    position: relative;
+    background-color: rgb(38, 138, 27);
+    border: .25vmin solid rgb(30, 124, 30);
+    border-radius: 15px;
+}
+
+.food {
+    position: relative;
+    background-image: url("./assets/snake-food.png");
+    background-size: cover;
+    border-radius: 16px;
+    z-index: 0;
+}
