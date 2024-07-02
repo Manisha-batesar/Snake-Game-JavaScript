@@ -10,6 +10,9 @@ const lowSpeed = document.getElementById("lowSpeed");
 const playGameButton = document.getElementsByClassName('play')[0];
 const pauseGameButton = document.getElementsByClassName('pause')[0];
 
+// make game sound volume low
+gameBackgroundMusic.volume = 0.01;
+
 
 let isGamePaused = false;
 let speed = 5;
@@ -160,7 +163,7 @@ else {
 }
 
 const isGameStarted = () => {
-    if(inputDir.x === 0 && inputDir.y === 0){
+    if (inputDir.x === 0 && inputDir.y === 0) {
         return true;
     }
 
@@ -169,15 +172,18 @@ const isGameStarted = () => {
 
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
-    // inputDir = { x: 0, y: 0 };//start game
-    gameBackgroundMusic.volume = 0.1;
-    if(!isGamePaused){gameBackgroundMusic.play();}
+    // Play sound only if game is not paused
+    if (!isGamePaused) {
+        gameBackgroundMusic.play();
+    }
+    // prevent default event actions
     e.preventDefault();
+
     switch (e.key) {
         case "ArrowUp":
             if ((inputDir.x !== 0 && inputDir.y !== 1) || isGameStarted()) {
-            inputDir.x = 0;
-            inputDir.y = -1;
+                inputDir.x = 0;
+                inputDir.y = -1;
             }
             break;
 
@@ -191,16 +197,16 @@ window.addEventListener('keydown', e => {
         case "ArrowLeft":
             if ((inputDir.x !== 1 && inputDir.y !== 0) || isGameStarted()) {
 
-            inputDir.x = -1;
-            inputDir.y = 0;
+                inputDir.x = -1;
+                inputDir.y = 0;
             }
             break;
 
         case "ArrowRight":
             if ((inputDir.x !== -1 && inputDir.y !== 0) || isGameStarted()) {
 
-            inputDir.x = 1;
-            inputDir.y = 0;
+                inputDir.x = 1;
+                inputDir.y = 0;
             }
             break;
 
