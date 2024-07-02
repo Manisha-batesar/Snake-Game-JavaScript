@@ -4,6 +4,8 @@ const foodSound = new Audio('./assets/snake-food.mp3');
 const gameOverSound = new Audio('./assets/game-over.mp3');
 const gameBackgroundMusic = new Audio('./assets/bg-snake-music.mp3');
 const highSpeed = document.getElementById("highSpeed");
+const hiscoreBox = document.getElementById("hiscoreBox");
+const scoreBox = document.getElementById("scoreBox");
 const lowSpeed = document.getElementById("lowSpeed");
 const playGameButton = document.getElementsByClassName('play')[0];
 const pauseGameButton = document.getElementsByClassName('pause')[0];
@@ -70,13 +72,21 @@ function isCollide(snake) {
     //if you bump into yourself
     for (let i = 1; i < snakeArr.length; i++) {
         if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
+            score = 0;
+            resetGameScore();
             return true;
         }
     }
     //if you bump into the wall
     if (snake[0].x >= 18 || snake[0].x <= 0 || snake[0].y >= 18 || snake[0].y <= 0) {
+        score = 0;
+        resetGameScore();
         return true;
     }
+}
+
+const resetGameScore = () => {
+    scoreBox.innerHTML = "Score: 0"
 }
 
 function gameEngine() {
@@ -92,13 +102,13 @@ function gameEngine() {
     }
     //if snake have eaten the food
     if (snakeArr[0].y === food.y && snakeArr[0].x === food.x) {
-        console.log(snakeArr[0]);
-        console.log(food)
+        // console.log(snakeArr[0]);
+        // console.log(food)
         foodSound.playbackRate = 2;
         foodSound.play();
         score += 1;
         if (score > hiscore) {
-            hiscoreval = score;
+            let hiscoreval = score;
             localStorage.setItem("hiscore", JSON.stringify(hiscoreval))
             hiscoreBox.innerHTML = "Hiscore:" + hiscoreval;
         }
