@@ -147,31 +147,49 @@ else {
     hiscoreBox.innerHTML = "Hiscore:" + hiscore;
 }
 
+const isGameStarted = () => {
+    if(inputDir.x === 0 && inputDir.y === 0){
+        return true;
+    }
+
+    return false;
+}
+
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
-    inputDir = { x: 0, y: 0 };//start game
+    // inputDir = { x: 0, y: 0 };//start game
     gameBackgroundMusic.volume = 0.1;
     gameBackgroundMusic.play();
+    e.preventDefault();
     switch (e.key) {
         case "ArrowUp":
+            if ((inputDir.x !== 0 && inputDir.y !== 1) || isGameStarted()) {
             inputDir.x = 0;
             inputDir.y = -1;
+            }
             break;
 
         case "ArrowDown":
-            inputDir.x = 0;
-            inputDir.y = 1;
+            if ((inputDir.x !== 0 && inputDir.y !== -1 || isGameStarted())) {
+                inputDir.x = 0;
+                inputDir.y = 1;
+            }
             break;
 
         case "ArrowLeft":
+            if ((inputDir.x !== 1 && inputDir.y !== 0) || isGameStarted()) {
+
             inputDir.x = -1;
             inputDir.y = 0;
+            }
             break;
 
         case "ArrowRight":
+            if ((inputDir.x !== -1 && inputDir.y !== 0) || isGameStarted()) {
+
             inputDir.x = 1;
             inputDir.y = 0;
-
+            }
             break;
 
         default:
