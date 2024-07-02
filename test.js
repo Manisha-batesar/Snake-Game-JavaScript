@@ -8,10 +8,11 @@ document.addEventListener('touchmove', handleTouchMove, false);
 document.addEventListener('touchend', handleTouchEnd, false);
 
 function handleTouchStart(event) {
-   // inputDir = { x: 0, y: 0 };//start game
+    // inputDir = { x: 0, y: 0 };//start game
+    if (!isGamePaused) {
+        gameBackgroundMusic.play();
+    }
 
-    gameBackgroundMusic.volume = 0.1;
-    gameBackgroundMusic.play();
     startX = event.touches[0].clientX;
     startY = event.touches[0].clientY;
 }
@@ -31,6 +32,7 @@ function handleTouchEnd(event) {
 
     // Determine direction
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
+
         // Horizontal swipe
         if (deltaX > 0) {
             // Right swipe
