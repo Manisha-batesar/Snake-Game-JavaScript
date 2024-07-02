@@ -36,11 +36,13 @@ lowSpeed.addEventListener("click", () => {
 
 // To pause play game
 pauseGameButton.addEventListener("click", () => {
+    gameBackgroundMusic.play();
     isGamePaused = !isGamePaused;
     pauseGameButton.classList.add("hide");
     playGameButton.classList.remove("hide");
 });
 playGameButton.addEventListener("click", () => {
+    gameBackgroundMusic.pause();
     isGamePaused = !isGamePaused;
 
     playGameButton.classList.add("hide");
@@ -125,7 +127,7 @@ function gameEngine() {
             snakeElement.classList.add('head');
         }
         else {
-            snakeElement.classList.add('snake');
+            snakeElement.classList.add('snake-body');
         }
         container.appendChild(snakeElement);
     });
@@ -159,7 +161,7 @@ window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
     // inputDir = { x: 0, y: 0 };//start game
     gameBackgroundMusic.volume = 0.1;
-    gameBackgroundMusic.play();
+    if(!isGamePaused){gameBackgroundMusic.play();}
     e.preventDefault();
     switch (e.key) {
         case "ArrowUp":

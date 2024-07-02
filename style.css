@@ -144,7 +144,7 @@ body {
     background-color: rgb(20, 88, 39);
 }
 
-.snake {
+.snake-body {
     position: relative;
     background-color: rgb(38, 138, 27);
     border: .25vmin solid rgb(30, 124, 30);
