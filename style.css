@@ -3,6 +3,10 @@
     margin: 0%;
 }
 
+html, body {
+    overscroll-behavior-y: none; /* Prevent swipe-to-refresh on both elements */
+  }
+
 body {
     background: url("./assets/snake.png");
     background-size: 100vw 100vh;

@@ -8,7 +8,7 @@ document.addEventListener('touchmove', handleTouchMove, false);
 document.addEventListener('touchend', handleTouchEnd, false);
 
 function handleTouchStart(event) {
-    inputDir = { x: 0, y: 0 };//start game
+   // inputDir = { x: 0, y: 0 };//start game
 
     gameBackgroundMusic.volume = 0.1;
     gameBackgroundMusic.play();
@@ -34,26 +34,36 @@ function handleTouchEnd(event) {
         // Horizontal swipe
         if (deltaX > 0) {
             // Right swipe
-            inputDir.x = 1;
-            inputDir.y = 0;
-           
+            if ((inputDir.x !== -1 && inputDir.y !== 0) || isGameStarted()) {
+
+                inputDir.x = 1;
+                inputDir.y = 0;
+            }
+
         } else {
             // Left swipe
-            inputDir.x = -1;
-            inputDir.y = 0;
-          
+            if ((inputDir.x !== 1 && inputDir.y !== 0) || isGameStarted()) {
+
+                inputDir.x = -1;
+                inputDir.y = 0;
+            }
+
         }
     } else {
         // Vertical swipe
         if (deltaY > 0) {
             // Down swipe
-            inputDir.x = 0;
-            inputDir.y = 1;
-           
+            if ((inputDir.x !== 0 && inputDir.y !== -1 || isGameStarted())) {
+                inputDir.x = 0;
+                inputDir.y = 1;
+            }
+
         } else {
             // Up swipe
-            inputDir.x = 0;
-            inputDir.y = -1;
+            if ((inputDir.x !== 0 && inputDir.y !== 1) || isGameStarted()) {
+                inputDir.x = 0;
+                inputDir.y = -1;
+            }
         }
     }
 }
