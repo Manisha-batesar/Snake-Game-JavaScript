@@ -11,8 +11,7 @@ const playGameButton = document.getElementsByClassName('play')[0];
 const pauseGameButton = document.getElementsByClassName('pause')[0];
 
 // make game sound volume low
-gameBackgroundMusic.volume = 0.01;
-
+gameBackgroundMusic.volume = 0.1;
 
 let isGamePaused = false;
 let speed = 5;
@@ -171,6 +170,7 @@ const isGameStarted = () => {
 }
 
 window.requestAnimationFrame(main);
+
 window.addEventListener('keydown', e => {
     // Play sound only if game is not paused
     if (!isGamePaused) {
@@ -215,3 +215,12 @@ window.addEventListener('keydown', e => {
     }
 
 })
+
+// on enter game button click show game controls
+document.getElementById("game-enter-button").addEventListener("click", () => {
+    console.log("here")
+    // show snake game controls
+    document.getElementById("game-container").classList.remove("d-none");
+    // hide game enter button container
+    document.getElementById("game-enter-container").classList.add("d-none");
+});

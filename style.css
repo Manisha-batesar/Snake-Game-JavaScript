@@ -3,9 +3,11 @@
     margin: 0%;
 }
 
-html, body {
-    overscroll-behavior-y: none; /* Prevent swipe-to-refresh on both elements */
-  }
+html,
+body {
+    overscroll-behavior-y: none;
+    /* Prevent swipe-to-refresh on both elements */
+}
 
 body {
     background: url("./assets/snake.png");
@@ -157,4 +159,42 @@ body {
     background-size: cover;
     border-radius: 16px;
     z-index: 0;
+}
+
+.d-none {
+    display: none !important;
+}
+
+#game-enter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgba(29, 28, 28, 0.4);
+}
+
+#game-enter-container button {
+    background-color: rgb(20, 88, 39);
+    border: 1px dotted whitesmoke;
+    padding: 20px;
+    font-size: 20px;
+    color: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px 2px rgba(239, 233, 233, 0.2);
+    animation: zoom-in-zoom-out 1s ease infinite;
+    cursor: pointer;
+}
+
+@keyframes zoom-in-zoom-out {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.5, 1.5);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
 }
